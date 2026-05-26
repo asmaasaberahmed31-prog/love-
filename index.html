@@ -171,7 +171,17 @@
       }
     }
   </style></head>
-<body><div id="intro" class="screen active">
+<body>
+  <!-- LOADER -->
+<div id="loader" class="screen active">
+  <div class="intro-box">
+    <h1>✨ Surprise is Ready ✨</h1>
+    <p class="intro-text">اضغط لتبدأ المفاجأة 💖</p>
+
+    <button onclick="startExperience()">ابدأ المفاجأة 🎁</button>
+  </div>
+</div>
+<div id="intro" class="screen active">
   <div class="intro-box">
     <h1>💖 To My Favorite Person 💖</h1>
     <h2>كل سنة وانت أجمل حاجة حصلتلي ✨</h2><p class="intro-text">
@@ -345,19 +355,23 @@
     }
   }, 5000);
 
-  function hearts() {
-    setInterval(() => {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.innerHTML = ['💖','✨','💜','🌸'][Math.floor(Math.random()*4)];
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = (3 + Math.random() * 4) + 's';
-      document.body.appendChild(heart);
+function hearts() {
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = ['💖','✨','💜','🌸'][Math.floor(Math.random()*4)];
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (3 + Math.random() * 4) + 's';
+    document.body.appendChild(heart);
 
-      setTimeout(() => {
-        heart.remove();
-      }, 7000);
-    }, 250);
-  }
+    setTimeout(() => {
+      heart.remove();
+    }, 7000);
+  }, 250);
+}
+function startExperience(){
+  document.getElementById('loader').classList.remove('active');
+  document.getElementById('intro').classList.add('active');
+}
 </script></body>
 </html>
