@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💎 Birthday Memories 💎</title>  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .screen {
+      display: none;
+      min-height: 100vh;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fade 1.2s ease;
+    }
+
+    .active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .intro-box {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(15px);
+      padding: 50px 25px;
+      border-radius: 30px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 0 40px rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #ffb6ff, #c084fc, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+    }
+
+    h2 {
+      color: #d8b4fe;
+      margin-bottom: 20px;
+      font-size: 25px;
+    }
+
+    .intro-text {
+      font-size: 20px;
+      color: #ddd;
+      line-height: 1.8;
+    }
+
+    button {
+      margin-top: 35px;
+      background: linear-gradient(45deg, #9333ea, #ec4899);
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 10px 30px rgba(236,72,153,0.4);
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    .gallery-title {
+      margin-bottom: 40px;
+    }
+
+    .gallery-title h1 {
+      font-size: 45px;
+    }
+
+    .gallery-title p {
+      color: #ddd;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .gallery {
+      position: relative;
+      max-width: 450px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 10px;
+    }
+
+    .card {
+      display:none;
+      background: rgba(255,255,255,0.07);
+      border-radius: 25px;
+      overflow: hidden;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+      transition: 0.4s;
+    }
+
+    .active-slide {
+      display:block;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 15px 45px rgba(236,72,153,0.3);
+    }
+
+    .card img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+
+    .card-text {
+      padding: 20px;
+    }
+
+    .card-text h3 {
+      color: #f9a8d4;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card-text p {
+      color: #ddd;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+      z-index: 999;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(120vh);
+      }
+    }
+  </style></head>
+<body><div id="intro" class="screen active">
+  <div class="intro-box">
+    <h1>💖 To My Favorite Person 💖</h1>
+    <h2>كل سنة وانت أجمل حاجة حصلتلي ✨</h2><p class="intro-text">
+  يمكن مش بعرف أقول كل اللي جوايا دايمًا…
+  <br><br>
+  بس وجودك في حياتي هو أكتر حاجة مطمنة قلبي ❤️
+  <br>
+  كل لحظة معاك كانت ذكرى حلوة تستاهل تتعاش ألف مرة.
+  <br><br>
+  النهارده مش مجرد عيد ميلاد…
+  <br>
+  النهارده يوم الشخص اللي غيّر حياتي للأحلى 💞
+  <br><br>
+  أتمنى تفضل مبسوط وناجح وقلبي دايمًا جنب قلبك ✨
+</p>
+
+<button onclick="showMessage()">رسالة ليك 💌</button>
+
+  </div>
+</div><div id="message" class="screen">
+  <div class="intro-box">
+    <h1>💌 رسالة من قلبي ليك</h1><p class="intro-text">
+  كل سنة وانت النور اللي بيهون عليا الدنيا ❤️
+  <br><br>
+  يمكن الصور دي مجرد تفاصيل صغيرة…
+  <br>
+  بس كل صورة فيهم فيها ضحكة منك كانت كفاية تخليني مبسوطة يوم كامل.
+  <br><br>
+  بحب وجودك… بحب طريقتك… بحب الأمان اللي بحسه وأنا معاك 💖
+  <br><br>
+  أتمنى تفضل دايمًا الشخص اللي لما الدنيا تضيق عليا أهربله.
+  <br>
+  والشخص اللي كل سنة بتمنى أكون أول واحدة تقوله:
+  <br><br>
+  <span style="font-size:28px;color:#f9a8d4;font-weight:bold;">
+  عيد ميلاد سعيد يا حبيبي ✨
+  </span>
+</p>
+
+<button onclick="openGallery()">افتح الألبوم 📸</button>
+
+  </div>
+</div><div id="gallery" class="screen" style="background: linear-gradient(135deg, #14001f, #1e0b36, #000814);">  <div class="gallery-title">
+    <h1>💞 ألبوم الذكريات 💞</h1>
+    <p>أجمل اللحظات اللي تستحق تتشاف ألف مرة 📸</p>
+  </div>  <div class="gallery"><script>
+    const captions = [
+        'كل صورة ليك لوحدك تثبت قد إيه أنت شخص مميز ❤️',
+      'ضحكتك دي كفاية تخليني مبسوطة طول اليوم ✨',
+      'أنت أجمل صدفة حصلتلي 💖',
+      'حتى وإنت ساكت… وجودك بيطمني 🌸',
+      'الصورة دي من أكتر الصور اللي بحبها ليك 💞',
+      'كل مرة بشوفك فيها بحبك أكتر 😭',
+      'أجمل عيون ممكن حد يشوفها ❤️',
+      'وجودك في حياتي نعمة كبيرة ✨',
+      'أنت راحتي المفضلة وسط كل حاجة 💜',
+      'كل صورة ليك فيها حاجة بحبها 🥹',
+
+      'الصورة دي تحفة زيك بالظبط 💖',
+      'بحب تفاصيلك الصغيرة جدًا ✨',
+      'مفيش أجمل من ضحكتك بجد ❤️',
+      'أنت الأمان اللي كنت بدور عليه 💞',
+      'كل سنة وأنا بحبك أكتر 🌸',
+      'وجودك جمبي بيهون أي حاجة 😭',
+      'الصورة دي مليانة طاقة حلوة زيك ✨',
+      'أنت أكتر شخص بيريح قلبي ❤️',
+      'كل لحظة معاك تستاهل تتحفظ 📸',
+      'بحبك بطريقة مستحيل تتوصف 💖',
+
+      'أنت وش السعد عليا ✨',
+      'حتى الصور العادية معاك تبقى مميزة ❤️',
+      'ربنا يديم الصحاب واللمة الحلوة ✨',
+      'الصورة دي كلها راحة وفرحة ❤️',
+      'أحلى ذكريات بتتعمل من غير ترتيب 💞',
+      'في الصورة دي في كمية حب كبيرة 🌸',
+      'أنت روح أي مكان بتكون فيه ❤️',
+      'كل لحظة حلوة ليك تستحق تتحفظ 😭',
+      '💞',
+      'الصور دي هتفضل حلوة مهما عدى وقت ✨',
+           ' 😭✨' ,
+                 '❤️',
+
+
+    ];
+
+    for(let i = 1; i <= 31; i++) {
+      document.write(`
+        <div class="card ${i === 1 ? 'active-slide' : ''}">
+         <img src="images/photo${i}.jpeg" alt="photo${i}">
+          <div class="card-text">
+            <h3>💖 ذكرى رقم ${i}</h3>
+            <p>${captions[i % captions.length]}</p>
+          </div>
+        </div>
+      `)
+    }
+  </script>
+
+  </div>  <div style="margin-top:40px;display:flex;justify-content:center;gap:15px;">
+    <button onclick="prevSlide()">⬅ السابق</button>
+    <button onclick="nextSlide()">التالي ➡</button>
+    </div>
+  </div><div id="ending" class="screen">
+  <div class="intro-box">
+    <h1>💌 النهاية… بس الحب لأ</h1><p class="intro-text">
+  يمكن الصور خلصت…
+  <br><br>
+  لكن الحقيقة إن كل صورة هنا كانت مجرد محاولة صغيرة أوصف بيها قد إيه وجودك غالي ❤️
+  <br><br>
+  كل لحظة، كل ضحكة، كل ذكرى موجودة هنا كانت سبب في إني أحب الحياة أكتر وإنت فيها ✨
+  <br><br>
+  يمكن الدنيا تتغير، والأيام تعدي بسرعة…
+  <br>
+  بس الحاجة الوحيدة اللي متأكدة منها إنك هتفضل شخص مميز جدًا في قلبي 💖
+  <br><br>
+  أتمنى السنة الجديدة دي تكون بداية لكل حاجة حلوة ليك…
+  <br>
+  نجاح، راحة، ضحك، وأيام كلها سعادة 🌸
+  <br><br>
+  وأتمنى كل مرة تبص فيها للصور دي تفتكر إن في حد كان نفسه يشوفك مبسوط دايمًا ❤️
+  <br><br>
+  <span style="font-size:32px;color:#f9a8d4;font-weight:bold;">
+  عيد ميلاد سعيد يا أجمل شخص ✨
+  </span>
+</p>
+
+  </div>
+</div><script>
+  function showMessage() {
+    document.getElementById('intro').classList.remove('active');
+    document.getElementById('message').classList.add('active');
+  }
+
+  function openGallery() {
+    document.getElementById('message').classList.remove('active');
+    document.getElementById('gallery').classList.add('active');
+    hearts();
+  }
+
+  let currentSlide = 0;
+
+  function showSlide(index){
+    const slides = document.querySelectorAll('.card');
+    slides.forEach(slide => slide.classList.remove('active-slide'));
+    slides[index].classList.add('active-slide');
+  }
+
+  function nextSlide(){
+    const slides = document.querySelectorAll('.card');
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide(){
+    const slides = document.querySelectorAll('.card');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  setInterval(() => {
+    const gallery = document.getElementById('gallery');
+    const slides = document.querySelectorAll('.card');
+
+    if(gallery.classList.contains('active')){
+      if(currentSlide >= slides.length - 1){
+        document.getElementById('gallery').classList.remove('active');
+        document.getElementById('ending').classList.add('active');
+      } else {
+        nextSlide();
+      }
+    }
+  }, 5000);
+
+  function hearts() {
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = ['💖','✨','💜','🌸'][Math.floor(Math.random()*4)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random() * 4) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }, 250);
+  }
+</script></body>
+</html>
